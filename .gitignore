@@ -151,3 +151,6 @@ wp-content/mysql.sql
 /sitemap.xml
 /sitemap.xml.gz
 .htaccess
+
+#React
+build

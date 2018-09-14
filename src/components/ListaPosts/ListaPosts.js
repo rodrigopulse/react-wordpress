@@ -18,7 +18,12 @@ class ListaPosts extends React.Component {
             <div>
                 <ul>
                     {this.state.items.map(function(item, index) {
-                            return <li key={index}>{item.slug}</li>
+                            var link = "/post/"+item.slug;
+                            return <li>
+                                <a href={link}>
+                                    {item.title.rendered}
+                                </a>
+                            </li>
                         }
                     )}
                 </ul>

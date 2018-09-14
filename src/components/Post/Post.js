@@ -23,7 +23,7 @@ class Post extends React.Component {
     componentDidMount() {
         var url  = window.location.href;
         var slug = url.split("/")[url.split("/").length -1];
-        fetch("https://pulsemaker.com.br/wp-json/wp/v2/posts/?slug=10-projetos-para-fazer-com-arduino")
+        fetch("https://pulsemaker.com.br/wp-json/wp/v2/posts/?slug="+slug)
             .then(results => results.json())
             .then(results => this.setState({'post': results[0]}));
     }
@@ -32,6 +32,7 @@ class Post extends React.Component {
         return (
             <div className="wrapper">
                 <h1>{this.state.post.title.rendered}</h1>
+                <article dangerouslySetInnerHTML={{ __html: this.state.post.content.rendered }} />
             </div>
         );
     }
