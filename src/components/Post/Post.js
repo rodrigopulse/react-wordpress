@@ -29,6 +29,7 @@ class Post extends React.Component {
     }
 
     render() {
+        document.title = this.state.post.title.rendered;
         return (
             <div className="wrapper">
                 <h1>{this.state.post.title.rendered}</h1>
