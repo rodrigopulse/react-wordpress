@@ -15,20 +15,21 @@ class ListaPosts extends React.Component {
     }
     render() {
         return (
-            <div>
-                <ul>
-                    {this.state.items.map(function(item, index) {
-                            var link = "/post/"+item.slug;
-                            var thumbPost = item._embedded['wp:featuredmedia']['0'].media_details.sizes.thumbnail.source_url;
-                            return <li>
-                                <a href={link}>
-                                    <img src={thumbPost} alt="" />
-                                    {item.title.rendered}
-                                </a>
-                            </li>
-                        }
-                    )}
-                </ul>
+            <div className="card-columns">
+                {this.state.items.map(function(item, index) {
+                        var link = "/post/"+item.slug;
+                        var thumbPost = item._embedded['wp:featuredmedia']['0'].media_details.sizes['thumb-card'].source_url;
+                        return <div className="card">
+                                <img className="card-img-top" src={thumbPost} alt="Thumb Post" />
+                                <div className="card-body">
+                                    
+                                    <h3 className="card-title">{item.title.rendered}</h3>
+                                    <a className="btn btn-primary btn-sm" href={link}>ACESSE AQUI
+                                    </a>
+                                </div>
+                        </div>
+                    }
+                )}
             </div>
         );
 

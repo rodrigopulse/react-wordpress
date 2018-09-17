@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Post.css';
 import {
     BrowserRouter as Router,
     Route,
@@ -31,7 +32,7 @@ class Post extends React.Component {
     render() {
         document.title = this.state.post.title.rendered;
         return (
-            <div className="wrapper">
+            <div className="wrapper container-post">
                 <h1>{this.state.post.title.rendered}</h1>
                 <article dangerouslySetInnerHTML={{ __html: this.state.post.content.rendered }} />
             </div>
